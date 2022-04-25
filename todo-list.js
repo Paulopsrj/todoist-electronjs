@@ -1,6 +1,18 @@
+function adicionarItemPelaTecla(event){
+   const tecla = event.key;
+
+   if(tecla=== "Enter"){
+    adicionarItem()
+   }
+
+  console.log("ENTROU NA FUNÇÃO PELA TECLA");
+  console.log(event);
+
+}
+
 function adicionarItem() {
 
-  const valorInput = "Minha primeira tarefa";
+  const valorInput = document.getElementById('texto').value;
 
   // Pegando a tag UL do nosso HTML pelo id
   const minhaTagUL = document.getElementById('lista-de-tarefas');
