@@ -22,10 +22,14 @@ function adicionarItem() {
 
   // Pegando a tag UL do nosso HTML pelo id
   const minhaTagUL = document.getElementById('lista-de-tarefas');
- // Criango a tag LI com JavaScript
+ 
+  // Criando a tag LI com JavaScript
   const criarTagLI = document.createElement('li');
 
-  criarTagLI.innerText = valorInput;
+  //Criando uma tag em negrito
+  const tagRemover = "<b onclick='removerItem(event)' > Remover </b>";
+
+  criarTagLI.innerHTML = valorInput + tagRemover;
 
   // Adicionando a tal LI para nossa ul
   minhaTagUL.appendChild(criarTagLI);
@@ -33,4 +37,15 @@ function adicionarItem() {
   console.log(criarTagLI);
 
   console.log( "ENTROU NA FUNÇÃO ADICIONAR ITEM" );
+}
+
+function removerItem(event) {
+  // Pegando a tag <b> dentro do nosso evento
+  const tagRemover = event.target;
+
+  const tagLi = tagRemover.parentNode;
+
+  console.log("CLIQUEI NA FUNÇÃO REMOVER");
+  
+  tagLi.remove();
 }
