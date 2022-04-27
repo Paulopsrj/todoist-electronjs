@@ -26,26 +26,32 @@ function adicionarItem() {
   // Criando a tag LI com JavaScript
   const criarTagLI = document.createElement('li');
 
+  criarTagLI.addEventListener('click', concluirTarefa);
+
   //Criando uma tag em negrito
-  const tagRemover = "<b onclick='removerItem(event)' > Remover </b>";
+  const tagRemover = `<i onclick="removerItem(event)" class="fa-solid fa-circle-minus"></i>`;
 
   criarTagLI.innerHTML = valorInput + tagRemover;
 
   // Adicionando a tal LI para nossa ul
   minhaTagUL.appendChild(criarTagLI);
-
-  console.log(criarTagLI);
-
-  console.log( "ENTROU NA FUNÇÃO ADICIONAR ITEM" );
 }
 
 function removerItem(event) {
-  // Pegando a tag <b> dentro do nosso evento
-  const tagRemover = event.target;
 
-  const tagLi = tagRemover.parentNode;
+  //Pegando a tag <i> dentro do nosso event
+  const meuIcone = event.target;
 
-  console.log("CLIQUEI NA FUNÇÃO REMOVER");
-  
-  tagLi.remove();
+  //Pegando a tag <i> através da miha tag <i> com propriedade parentElement
+  const minhaLi = meuIcone.parentElement ;
+
+  //Ecluindo a tag <li> com a função remove()
+  minhaLi.remove();
+}
+
+function concluirTarefa (event){
+
+  const minhaTagLi = event.target;
+
+  minhaTagLi.className = "concluida";
 }
